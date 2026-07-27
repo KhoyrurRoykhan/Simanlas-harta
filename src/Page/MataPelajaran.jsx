@@ -238,7 +238,7 @@ const MataPelajaran = () => {
         </div>
 
         {/* Statistics */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-4 gap-6">
+        {/* <div className="mt-16 grid grid-cols-1 md:grid-cols-4 gap-6">
           <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 text-center border border-orange-100">
             <div className="text-4xl font-bold text-orange-600">{subjects.length}</div>
             <div className="text-gray-500 mt-1">Total Mata Pelajaran</div>
@@ -255,7 +255,7 @@ const MataPelajaran = () => {
             <div className="text-4xl font-bold text-green-600">✓</div>
             <div className="text-gray-500 mt-1">Aktif</div>
           </div>
-        </div>
+        </div> */}
 
         {/* Footer */}
         <div className="mt-12 text-center text-gray-400 text-sm">
