@@ -18,21 +18,21 @@ import {
   Users,
   School,
   Star,
-  Palette
+  Microscope
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-const Sbdp = () => {
+const Ipas = () => {
   const [expandedItems, setExpandedItems] = useState({});
   const [selectedPertemuan, setSelectedPertemuan] = useState(null);
 
   // Data dummy - nanti akan diganti dengan data dari database
   const [data, setData] = useState({
     mapel: {
-      id: 5,
-      nama: 'SBdP',
-      deskripsi: 'Seni Budaya dan Prakarya - Mengembangkan kreativitas dan apresiasi seni',
-      icon: '🎨',
+      id: 4,
+      nama: 'IPAS',
+      deskripsi: 'Ilmu Pengetahuan Alam dan Sosial - Memahami alam dan lingkungan sosial',
+      icon: '🔬',
       totalPertemuan: 0,
       totalBab: 0,
       totalSubBab: 0,
@@ -52,8 +52,8 @@ const Sbdp = () => {
     if (data.mapel.pertemuan.length === 0) {
       return (
         <div className="text-center py-16">
-          <div className="inline-flex p-6 bg-purple-100 rounded-full mb-4">
-            <Palette className="w-16 h-16 text-purple-500" />
+          <div className="inline-flex p-6 bg-cyan-100 rounded-full mb-4">
+            <Microscope className="w-16 h-16 text-cyan-500" />
           </div>
           <h3 className="text-2xl font-bold text-gray-700 mb-2">Belum Ada Pertemuan</h3>
           <p className="text-gray-400 max-w-md mx-auto">
@@ -73,11 +73,11 @@ const Sbdp = () => {
           <div key={pertemuan.id} className="bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
             {/* Header Pertemuan */}
             <div 
-              className="flex items-center justify-between p-4 bg-gradient-to-r from-purple-50 to-pink-50 cursor-pointer hover:from-purple-100 hover:to-pink-100 transition-colors"
+              className="flex items-center justify-between p-4 bg-gradient-to-r from-cyan-50 to-teal-50 cursor-pointer hover:from-cyan-100 hover:to-teal-100 transition-colors"
               onClick={() => toggleExpand(`pertemuan-${pertemuan.id}`)}
             >
               <div className="flex items-center space-x-4">
-                <div className="p-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg">
+                <div className="p-2 bg-gradient-to-r from-cyan-500 to-teal-500 rounded-lg">
                   <Calendar className="w-5 h-5 text-white" />
                 </div>
                 <div>
@@ -113,7 +113,7 @@ const Sbdp = () => {
                 {/* Bab List */}
                 {pertemuan.bab && pertemuan.bab.length > 0 ? (
                   pertemuan.bab.map((bab) => (
-                    <div key={bab.id} className="border-l-4 border-purple-300 pl-4">
+                    <div key={bab.id} className="border-l-4 border-cyan-300 pl-4">
                       <div 
                         className="flex items-center justify-between cursor-pointer hover:bg-gray-50 p-2 rounded-lg transition-colors"
                         onClick={() => toggleExpand(`bab-${bab.id}`)}
@@ -137,7 +137,7 @@ const Sbdp = () => {
                         <div className="mt-3 space-y-3 ml-8">
                           {bab.subBab && bab.subBab.length > 0 ? (
                             bab.subBab.map((sub) => (
-                              <div key={sub.id} className="bg-gray-50 rounded-lg p-4 border border-gray-100 hover:border-purple-200 transition-colors">
+                              <div key={sub.id} className="bg-gray-50 rounded-lg p-4 border border-gray-100 hover:border-cyan-200 transition-colors">
                                 <div className="flex items-start justify-between">
                                   <div className="flex-1">
                                     <div className="flex items-center space-x-2 mb-2">
@@ -159,7 +159,7 @@ const Sbdp = () => {
                                           href={sub.linkDrive}
                                           target="_blank"
                                           rel="noopener noreferrer"
-                                          className="inline-flex items-center space-x-2 text-sm text-purple-600 hover:text-purple-800 transition-colors"
+                                          className="inline-flex items-center space-x-2 text-sm text-cyan-600 hover:text-cyan-800 transition-colors"
                                         >
                                           <LinkIcon className="w-4 h-4" />
                                           <span>Lihat Materi Lengkap</span>
@@ -203,24 +203,24 @@ const Sbdp = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-rose-50">
+    <div className="min-h-screen bg-gradient-to-br from-cyan-50 via-teal-50 to-emerald-50">
       {/* Navbar */}
       <nav className="bg-white/90 backdrop-blur-lg shadow-lg sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <Link to="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
-              <div className="p-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl">
-                <Palette className="w-6 h-6 text-white" />
+              <div className="p-2 bg-gradient-to-r from-cyan-500 to-teal-500 rounded-xl">
+                <Microscope className="w-6 h-6 text-white" />
               </div>
               <div>
-                <span className="text-xl font-bold text-gray-700">SBdP</span>
+                <span className="text-xl font-bold text-gray-700">IPAS</span>
                 <span className="block text-xs text-gray-400">Kelas 3 Dewi Sartika</span>
               </div>
             </Link>
             <div className="flex items-center space-x-4">
               <Link 
-                to="/mata-pelajaran" 
-                className="flex items-center space-x-2 text-gray-600 hover:text-purple-600 transition-colors"
+                to="/3-dewi-sartika/mata-pelajaran" 
+                className="flex items-center space-x-2 text-gray-600 hover:text-cyan-600 transition-colors"
               >
                 <ChevronLeft className="w-5 h-5" />
                 <span>Kembali</span>
@@ -253,7 +253,7 @@ const Sbdp = () => {
                 <p className="text-sm text-gray-500">Total Pertemuan</p>
                 <p className="text-2xl font-bold text-gray-800">{data.mapel.totalPertemuan}</p>
               </div>
-              <Calendar className="w-8 h-8 text-purple-500" />
+              <Calendar className="w-8 h-8 text-cyan-500" />
             </div>
           </div>
           <div className="bg-white rounded-xl p-4 border border-gray-200">
@@ -286,10 +286,10 @@ const Sbdp = () => {
         </div>
 
         {/* Pertemuan List */}
-        <div className="bg-white/70 backdrop-blur-sm rounded-2xl border border-purple-100 p-6 shadow-lg">
+        <div className="bg-white/70 backdrop-blur-sm rounded-2xl border border-cyan-100 p-6 shadow-lg">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-xl font-bold text-gray-700 flex items-center space-x-2">
-              <Calendar className="w-5 h-5 text-purple-500" />
+              <Calendar className="w-5 h-5 text-cyan-500" />
               <span>Daftar Pertemuan</span>
             </h2>
             <div className="flex items-center space-x-2 text-sm text-gray-400">
@@ -303,18 +303,18 @@ const Sbdp = () => {
 
         {/* Info Tambahan */}
         <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="bg-white/70 backdrop-blur-sm rounded-xl p-4 border border-purple-100">
+          <div className="bg-white/70 backdrop-blur-sm rounded-xl p-4 border border-cyan-100">
             <div className="flex items-center space-x-3">
-              <div className="p-2 bg-purple-100 rounded-lg">
-                <Users className="w-5 h-5 text-purple-600" />
+              <div className="p-2 bg-cyan-100 rounded-lg">
+                <Users className="w-5 h-5 text-cyan-600" />
               </div>
               <div>
                 <p className="text-sm text-gray-500">Guru Pengampu</p>
-                <p className="font-semibold text-gray-700">Bapak/Ibu Guru SBdP</p>
+                <p className="font-semibold text-gray-700">Bapak/Ibu Guru IPAS</p>
               </div>
             </div>
           </div>
-          <div className="bg-white/70 backdrop-blur-sm rounded-xl p-4 border border-purple-100">
+          <div className="bg-white/70 backdrop-blur-sm rounded-xl p-4 border border-cyan-100">
             <div className="flex items-center space-x-3">
               <div className="p-2 bg-green-100 rounded-lg">
                 <School className="w-5 h-5 text-green-600" />
@@ -329,7 +329,7 @@ const Sbdp = () => {
 
         {/* Footer */}
         <div className="mt-12 text-center text-gray-400 text-sm">
-          <p>© 2026 SBdP - Kelas 3 Dewi Sartika</p>
+          <p>© 2026 IPAS - Kelas 3 Dewi Sartika</p>
           <p className="mt-1">SDS Harapan Sejahtera</p>
         </div>
       </div>
@@ -337,4 +337,4 @@ const Sbdp = () => {
   );
 };
 
-export default Sbdp;
+export default Ipas;

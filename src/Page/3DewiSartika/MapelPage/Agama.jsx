@@ -18,21 +18,21 @@ import {
   Users,
   School,
   Star,
-  Heart
+  Mosque
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-const Plks = () => {
+const Agama = () => {
   const [expandedItems, setExpandedItems] = useState({});
   const [selectedPertemuan, setSelectedPertemuan] = useState(null);
 
   // Data dummy - nanti akan diganti dengan data dari database
   const [data, setData] = useState({
     mapel: {
-      id: 6,
-      nama: 'PLKS',
-      deskripsi: 'Pendidikan Lingkungan dan Kesehatan Sekolah - Menjaga kebersihan dan kesehatan',
-      icon: '❤️',
+      id: 8,
+      nama: 'Agama',
+      deskripsi: 'Pendidikan Agama Islam - Mempelajari ajaran Islam dan akhlak mulia',
+      icon: '🕌',
       totalPertemuan: 0,
       totalBab: 0,
       totalSubBab: 0,
@@ -52,8 +52,8 @@ const Plks = () => {
     if (data.mapel.pertemuan.length === 0) {
       return (
         <div className="text-center py-16">
-          <div className="inline-flex p-6 bg-pink-100 rounded-full mb-4">
-            <Heart className="w-16 h-16 text-pink-500" />
+          <div className="inline-flex p-6 bg-emerald-100 rounded-full mb-4">
+            <Mosque className="w-16 h-16 text-emerald-500" />
           </div>
           <h3 className="text-2xl font-bold text-gray-700 mb-2">Belum Ada Pertemuan</h3>
           <p className="text-gray-400 max-w-md mx-auto">
@@ -73,11 +73,11 @@ const Plks = () => {
           <div key={pertemuan.id} className="bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
             {/* Header Pertemuan */}
             <div 
-              className="flex items-center justify-between p-4 bg-gradient-to-r from-pink-50 to-rose-50 cursor-pointer hover:from-pink-100 hover:to-rose-100 transition-colors"
+              className="flex items-center justify-between p-4 bg-gradient-to-r from-emerald-50 to-green-50 cursor-pointer hover:from-emerald-100 hover:to-green-100 transition-colors"
               onClick={() => toggleExpand(`pertemuan-${pertemuan.id}`)}
             >
               <div className="flex items-center space-x-4">
-                <div className="p-2 bg-gradient-to-r from-pink-500 to-rose-500 rounded-lg">
+                <div className="p-2 bg-gradient-to-r from-emerald-500 to-green-500 rounded-lg">
                   <Calendar className="w-5 h-5 text-white" />
                 </div>
                 <div>
@@ -113,7 +113,7 @@ const Plks = () => {
                 {/* Bab List */}
                 {pertemuan.bab && pertemuan.bab.length > 0 ? (
                   pertemuan.bab.map((bab) => (
-                    <div key={bab.id} className="border-l-4 border-pink-300 pl-4">
+                    <div key={bab.id} className="border-l-4 border-emerald-300 pl-4">
                       <div 
                         className="flex items-center justify-between cursor-pointer hover:bg-gray-50 p-2 rounded-lg transition-colors"
                         onClick={() => toggleExpand(`bab-${bab.id}`)}
@@ -137,7 +137,7 @@ const Plks = () => {
                         <div className="mt-3 space-y-3 ml-8">
                           {bab.subBab && bab.subBab.length > 0 ? (
                             bab.subBab.map((sub) => (
-                              <div key={sub.id} className="bg-gray-50 rounded-lg p-4 border border-gray-100 hover:border-pink-200 transition-colors">
+                              <div key={sub.id} className="bg-gray-50 rounded-lg p-4 border border-gray-100 hover:border-emerald-200 transition-colors">
                                 <div className="flex items-start justify-between">
                                   <div className="flex-1">
                                     <div className="flex items-center space-x-2 mb-2">
@@ -159,7 +159,7 @@ const Plks = () => {
                                           href={sub.linkDrive}
                                           target="_blank"
                                           rel="noopener noreferrer"
-                                          className="inline-flex items-center space-x-2 text-sm text-pink-600 hover:text-pink-800 transition-colors"
+                                          className="inline-flex items-center space-x-2 text-sm text-emerald-600 hover:text-emerald-800 transition-colors"
                                         >
                                           <LinkIcon className="w-4 h-4" />
                                           <span>Lihat Materi Lengkap</span>
@@ -203,24 +203,24 @@ const Plks = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-50 via-rose-50 to-red-50">
+    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50">
       {/* Navbar */}
       <nav className="bg-white/90 backdrop-blur-lg shadow-lg sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <Link to="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
-              <div className="p-2 bg-gradient-to-r from-pink-500 to-rose-500 rounded-xl">
-                <Heart className="w-6 h-6 text-white" />
+              <div className="p-2 bg-gradient-to-r from-emerald-500 to-green-500 rounded-xl">
+                <Mosque className="w-6 h-6 text-white" />
               </div>
               <div>
-                <span className="text-xl font-bold text-gray-700">PLKS</span>
+                <span className="text-xl font-bold text-gray-700">Agama</span>
                 <span className="block text-xs text-gray-400">Kelas 3 Dewi Sartika</span>
               </div>
             </Link>
             <div className="flex items-center space-x-4">
               <Link 
-                to="/mata-pelajaran" 
-                className="flex items-center space-x-2 text-gray-600 hover:text-pink-600 transition-colors"
+                to="/3-dewi-sartika/mata-pelajaran" 
+                className="flex items-center space-x-2 text-gray-600 hover:text-emerald-600 transition-colors"
               >
                 <ChevronLeft className="w-5 h-5" />
                 <span>Kembali</span>
@@ -253,7 +253,7 @@ const Plks = () => {
                 <p className="text-sm text-gray-500">Total Pertemuan</p>
                 <p className="text-2xl font-bold text-gray-800">{data.mapel.totalPertemuan}</p>
               </div>
-              <Calendar className="w-8 h-8 text-pink-500" />
+              <Calendar className="w-8 h-8 text-emerald-500" />
             </div>
           </div>
           <div className="bg-white rounded-xl p-4 border border-gray-200">
@@ -286,10 +286,10 @@ const Plks = () => {
         </div>
 
         {/* Pertemuan List */}
-        <div className="bg-white/70 backdrop-blur-sm rounded-2xl border border-pink-100 p-6 shadow-lg">
+        <div className="bg-white/70 backdrop-blur-sm rounded-2xl border border-emerald-100 p-6 shadow-lg">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-xl font-bold text-gray-700 flex items-center space-x-2">
-              <Calendar className="w-5 h-5 text-pink-500" />
+              <Calendar className="w-5 h-5 text-emerald-500" />
               <span>Daftar Pertemuan</span>
             </h2>
             <div className="flex items-center space-x-2 text-sm text-gray-400">
@@ -303,18 +303,18 @@ const Plks = () => {
 
         {/* Info Tambahan */}
         <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="bg-white/70 backdrop-blur-sm rounded-xl p-4 border border-pink-100">
+          <div className="bg-white/70 backdrop-blur-sm rounded-xl p-4 border border-emerald-100">
             <div className="flex items-center space-x-3">
-              <div className="p-2 bg-pink-100 rounded-lg">
-                <Users className="w-5 h-5 text-pink-600" />
+              <div className="p-2 bg-emerald-100 rounded-lg">
+                <Users className="w-5 h-5 text-emerald-600" />
               </div>
               <div>
                 <p className="text-sm text-gray-500">Guru Pengampu</p>
-                <p className="font-semibold text-gray-700">Bapak/Ibu Guru PLKS</p>
+                <p className="font-semibold text-gray-700">Bapak/Ibu Guru Agama</p>
               </div>
             </div>
           </div>
-          <div className="bg-white/70 backdrop-blur-sm rounded-xl p-4 border border-pink-100">
+          <div className="bg-white/70 backdrop-blur-sm rounded-xl p-4 border border-emerald-100">
             <div className="flex items-center space-x-3">
               <div className="p-2 bg-green-100 rounded-lg">
                 <School className="w-5 h-5 text-green-600" />
@@ -329,7 +329,7 @@ const Plks = () => {
 
         {/* Footer */}
         <div className="mt-12 text-center text-gray-400 text-sm">
-          <p>© 2026 PLKS - Kelas 3 Dewi Sartika</p>
+          <p>© 2026 Agama - Kelas 3 Dewi Sartika</p>
           <p className="mt-1">SDS Harapan Sejahtera</p>
         </div>
       </div>
@@ -337,4 +337,4 @@ const Plks = () => {
   );
 };
 
-export default Plks;
+export default Agama;

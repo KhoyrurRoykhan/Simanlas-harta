@@ -17,21 +17,22 @@ import {
   FolderTree,
   Users,
   School,
-  Star
+  Star,
+  Calculator
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-const BahasaIndonesia = () => {
+const Matematika = () => {
   const [expandedItems, setExpandedItems] = useState({});
   const [selectedPertemuan, setSelectedPertemuan] = useState(null);
 
   // Data dummy - nanti akan diganti dengan data dari database
   const [data, setData] = useState({
     mapel: {
-      id: 2,
-      nama: 'Bahasa Indonesia',
-      deskripsi: 'Mengembangkan kemampuan berbahasa dan bersastra Indonesia',
-      icon: '📚',
+      id: 1,
+      nama: 'Matematika',
+      deskripsi: 'Mempelajari konsep bilangan, operasi hitung, geometri, dan pengukuran',
+      icon: '📐',
       totalPertemuan: 0,
       totalBab: 0,
       totalSubBab: 0,
@@ -51,8 +52,8 @@ const BahasaIndonesia = () => {
     if (data.mapel.pertemuan.length === 0) {
       return (
         <div className="text-center py-16">
-          <div className="inline-flex p-6 bg-orange-100 rounded-full mb-4">
-            <Calendar className="w-16 h-16 text-orange-500" />
+          <div className="inline-flex p-6 bg-blue-100 rounded-full mb-4">
+            <Calculator className="w-16 h-16 text-blue-500" />
           </div>
           <h3 className="text-2xl font-bold text-gray-700 mb-2">Belum Ada Pertemuan</h3>
           <p className="text-gray-400 max-w-md mx-auto">
@@ -72,11 +73,11 @@ const BahasaIndonesia = () => {
           <div key={pertemuan.id} className="bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
             {/* Header Pertemuan */}
             <div 
-              className="flex items-center justify-between p-4 bg-gradient-to-r from-orange-50 to-rose-50 cursor-pointer hover:from-orange-100 hover:to-rose-100 transition-colors"
+              className="flex items-center justify-between p-4 bg-gradient-to-r from-blue-50 to-indigo-50 cursor-pointer hover:from-blue-100 hover:to-indigo-100 transition-colors"
               onClick={() => toggleExpand(`pertemuan-${pertemuan.id}`)}
             >
               <div className="flex items-center space-x-4">
-                <div className="p-2 bg-gradient-to-r from-orange-500 to-rose-500 rounded-lg">
+                <div className="p-2 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-lg">
                   <Calendar className="w-5 h-5 text-white" />
                 </div>
                 <div>
@@ -112,7 +113,7 @@ const BahasaIndonesia = () => {
                 {/* Bab List */}
                 {pertemuan.bab && pertemuan.bab.length > 0 ? (
                   pertemuan.bab.map((bab) => (
-                    <div key={bab.id} className="border-l-4 border-orange-300 pl-4">
+                    <div key={bab.id} className="border-l-4 border-blue-300 pl-4">
                       <div 
                         className="flex items-center justify-between cursor-pointer hover:bg-gray-50 p-2 rounded-lg transition-colors"
                         onClick={() => toggleExpand(`bab-${bab.id}`)}
@@ -136,7 +137,7 @@ const BahasaIndonesia = () => {
                         <div className="mt-3 space-y-3 ml-8">
                           {bab.subBab && bab.subBab.length > 0 ? (
                             bab.subBab.map((sub) => (
-                              <div key={sub.id} className="bg-gray-50 rounded-lg p-4 border border-gray-100 hover:border-orange-200 transition-colors">
+                              <div key={sub.id} className="bg-gray-50 rounded-lg p-4 border border-gray-100 hover:border-blue-200 transition-colors">
                                 <div className="flex items-start justify-between">
                                   <div className="flex-1">
                                     <div className="flex items-center space-x-2 mb-2">
@@ -202,24 +203,24 @@ const BahasaIndonesia = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
       {/* Navbar */}
       <nav className="bg-white/90 backdrop-blur-lg shadow-lg sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <Link to="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
-              <div className="p-2 bg-gradient-to-r from-orange-500 to-rose-500 rounded-xl">
-                <BookOpen className="w-6 h-6 text-white" />
+              <div className="p-2 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl">
+                <Calculator className="w-6 h-6 text-white" />
               </div>
               <div>
-                <span className="text-xl font-bold text-gray-700">Bahasa Indonesia</span>
+                <span className="text-xl font-bold text-gray-700">Matematika</span>
                 <span className="block text-xs text-gray-400">Kelas 3 Dewi Sartika</span>
               </div>
             </Link>
             <div className="flex items-center space-x-4">
               <Link 
-                to="/mata-pelajaran" 
-                className="flex items-center space-x-2 text-gray-600 hover:text-orange-600 transition-colors"
+                to="/3-dewi-sartika/mata-pelajaran" 
+                className="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors"
               >
                 <ChevronLeft className="w-5 h-5" />
                 <span>Kembali</span>
@@ -252,7 +253,7 @@ const BahasaIndonesia = () => {
                 <p className="text-sm text-gray-500">Total Pertemuan</p>
                 <p className="text-2xl font-bold text-gray-800">{data.mapel.totalPertemuan}</p>
               </div>
-              <Calendar className="w-8 h-8 text-orange-500" />
+              <Calendar className="w-8 h-8 text-blue-500" />
             </div>
           </div>
           <div className="bg-white rounded-xl p-4 border border-gray-200">
@@ -285,10 +286,10 @@ const BahasaIndonesia = () => {
         </div>
 
         {/* Pertemuan List */}
-        <div className="bg-white/70 backdrop-blur-sm rounded-2xl border border-orange-100 p-6 shadow-lg">
+        <div className="bg-white/70 backdrop-blur-sm rounded-2xl border border-blue-100 p-6 shadow-lg">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-xl font-bold text-gray-700 flex items-center space-x-2">
-              <Calendar className="w-5 h-5 text-orange-500" />
+              <Calendar className="w-5 h-5 text-blue-500" />
               <span>Daftar Pertemuan</span>
             </h2>
             <div className="flex items-center space-x-2 text-sm text-gray-400">
@@ -302,18 +303,18 @@ const BahasaIndonesia = () => {
 
         {/* Info Tambahan */}
         <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="bg-white/70 backdrop-blur-sm rounded-xl p-4 border border-orange-100">
+          <div className="bg-white/70 backdrop-blur-sm rounded-xl p-4 border border-blue-100">
             <div className="flex items-center space-x-3">
               <div className="p-2 bg-blue-100 rounded-lg">
                 <Users className="w-5 h-5 text-blue-600" />
               </div>
               <div>
                 <p className="text-sm text-gray-500">Guru Pengampu</p>
-                <p className="font-semibold text-gray-700">Bapak/Ibu Guru Bahasa Indonesia</p>
+                <p className="font-semibold text-gray-700">Bapak/Ibu Guru Matematika</p>
               </div>
             </div>
           </div>
-          <div className="bg-white/70 backdrop-blur-sm rounded-xl p-4 border border-orange-100">
+          <div className="bg-white/70 backdrop-blur-sm rounded-xl p-4 border border-blue-100">
             <div className="flex items-center space-x-3">
               <div className="p-2 bg-green-100 rounded-lg">
                 <School className="w-5 h-5 text-green-600" />
@@ -328,7 +329,7 @@ const BahasaIndonesia = () => {
 
         {/* Footer */}
         <div className="mt-12 text-center text-gray-400 text-sm">
-          <p>© 2026 Bahasa Indonesia - Kelas 3 Dewi Sartika</p>
+          <p>© 2026 Matematika - Kelas 3 Dewi Sartika</p>
           <p className="mt-1">SDS Harapan Sejahtera</p>
         </div>
       </div>
@@ -336,4 +337,4 @@ const BahasaIndonesia = () => {
   );
 };
 
-export default BahasaIndonesia;
+export default Matematika;

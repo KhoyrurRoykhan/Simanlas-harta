@@ -12,8 +12,8 @@ import {
   Image as ImageIcon
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import jadwalKelas from '../assets/JadwalKelas3.jpeg';
-import jadwalPiket from '../assets/JadwalPiket.png';
+import jadwalKelas from '../../assets/JadwalKelas3.jpeg';
+import jadwalPiket from '../../assets/JadwalPiket.png';
 
 const JadwalPage = () => {
   const [activeTab, setActiveTab] = useState('pelajaran');

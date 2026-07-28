@@ -31,7 +31,7 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-const Admin = () => {
+const Admin3DewiSartika = () => {
   // State untuk navigasi
   const [selectedMapel, setSelectedMapel] = useState(null);
   const [selectedPertemuan, setSelectedPertemuan] = useState(null);
@@ -675,4 +675,4 @@ const Admin = () => {
   );
 };
 
-export default Admin;
+export default Admin3DewiSartika;

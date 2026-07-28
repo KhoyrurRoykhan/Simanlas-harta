@@ -219,7 +219,7 @@ const BahasaInggris = () => {
             </Link>
             <div className="flex items-center space-x-4">
               <Link 
-                to="/mata-pelajaran" 
+                to="/3-dewi-sartika/mata-pelajaran" 
                 className="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors"
               >
                 <ChevronLeft className="w-5 h-5" />

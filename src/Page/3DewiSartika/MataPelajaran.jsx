@@ -34,7 +34,7 @@ const MataPelajaran = () => {
       teacher: 'Bapak/Ibu Guru Matematika',
       schedule: 'Senin & Selasa',
       topics: ['Bilangan Cacah', 'Operasi Hitung', 'Pecahan', 'Geometri', 'Pengukuran'],
-      path: '/mata-pelajaran/matematika'
+      path: '/3-dewi-sartika/mata-pelajaran/matematika'
     },
     {
       id: 2,
@@ -48,7 +48,7 @@ const MataPelajaran = () => {
       teacher: 'Bapak/Ibu Guru Bahasa Indonesia',
       schedule: 'Selasa & Rabu',
       topics: ['Membaca', 'Menulis', 'Berbicara', 'Tata Bahasa', 'Kesusastraan'],
-      path: '/mata-pelajaran/bahasa-indonesia'
+      path: '/3-dewi-sartika/mata-pelajaran/bahasa-indonesia'
     },
     {
       id: 3,
@@ -62,7 +62,7 @@ const MataPelajaran = () => {
       teacher: 'Bapak/Ibu Guru Bahasa Inggris',
       schedule: 'Senin & Jumat',
       topics: ['Vocabulary', 'Grammar', 'Speaking', 'Reading', 'Writing'],
-      path: '/mata-pelajaran/bahasa-inggris'
+      path: '/3-dewi-sartika/mata-pelajaran/bahasa-inggris'
     },
     {
       id: 4,
@@ -76,7 +76,7 @@ const MataPelajaran = () => {
       teacher: 'Bapak/Ibu Guru IPAS',
       schedule: 'Selasa & Kamis',
       topics: ['Makhluk Hidup', 'Lingkungan', 'Sumber Daya Alam', 'Sosial Budaya', 'Sejarah'],
-      path: '/mata-pelajaran/ipas'
+      path: '/3-dewi-sartika/mata-pelajaran/ipas'
     },
     {
       id: 5,
@@ -90,7 +90,7 @@ const MataPelajaran = () => {
       teacher: 'Bapak/Ibu Guru SBdP',
       schedule: 'Rabu',
       topics: ['Seni Rupa', 'Seni Musik', 'Seni Tari', 'Prakarya', 'Kerajinan Tangan'],
-      path: '/mata-pelajaran/sbdp'
+      path: '/3-dewi-sartika/mata-pelajaran/sbdp'
     },
     {
       id: 6,
@@ -104,7 +104,7 @@ const MataPelajaran = () => {
       teacher: 'Bapak/Ibu Guru PLKS',
       schedule: 'Senin',
       topics: ['Kebersihan Diri', 'Lingkungan Sekolah', 'Kesehatan', 'Gizi', 'Pola Hidup Sehat'],
-      path: '/mata-pelajaran/plks'
+      path: '/3-dewi-sartika/mata-pelajaran/plks'
     },
     {
       id: 7,
@@ -118,7 +118,7 @@ const MataPelajaran = () => {
       teacher: 'Bapak/Ibu Guru Pendidikan Pancasila',
       schedule: 'Jumat',
       topics: ['Pancasila', 'Bhineka Tunggal Ika', 'Hak dan Kewajiban', 'Karakter', 'Kewarganegaraan'],
-      path: '/mata-pelajaran/pendidikan-pancasila'
+      path: '/3-dewi-sartika/mata-pelajaran/pendidikan-pancasila'
     },
     {
       id: 8,
@@ -132,7 +132,7 @@ const MataPelajaran = () => {
       teacher: 'Bapak/Ibu Guru Agama',
       schedule: 'Rabu',
       topics: ['Al-Quran', 'Hadits', 'Akhlak', 'Ibadah', 'Sejarah Islam'],
-      path: '/mata-pelajaran/agama'
+      path: '/3-dewi-sartika/mata-pelajaran/agama'
     }
   ];
 
