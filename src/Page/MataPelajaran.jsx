@@ -33,7 +33,8 @@ const MataPelajaran = () => {
       description: 'Mempelajari konsep bilangan, operasi hitung, geometri, dan pengukuran',
       teacher: 'Bapak/Ibu Guru Matematika',
       schedule: 'Senin & Selasa',
-      topics: ['Bilangan Cacah', 'Operasi Hitung', 'Pecahan', 'Geometri', 'Pengukuran']
+      topics: ['Bilangan Cacah', 'Operasi Hitung', 'Pecahan', 'Geometri', 'Pengukuran'],
+      path: '/mata-pelajaran/matematika'
     },
     {
       id: 2,
@@ -46,7 +47,8 @@ const MataPelajaran = () => {
       description: 'Mengembangkan kemampuan berbahasa dan bersastra Indonesia',
       teacher: 'Bapak/Ibu Guru Bahasa Indonesia',
       schedule: 'Selasa & Rabu',
-      topics: ['Membaca', 'Menulis', 'Berbicara', 'Tata Bahasa', 'Kesusastraan']
+      topics: ['Membaca', 'Menulis', 'Berbicara', 'Tata Bahasa', 'Kesusastraan'],
+      path: '/mata-pelajaran/bahasa-indonesia'
     },
     {
       id: 3,
@@ -59,7 +61,8 @@ const MataPelajaran = () => {
       description: 'Mempelajari bahasa Inggris dasar untuk komunikasi sehari-hari',
       teacher: 'Bapak/Ibu Guru Bahasa Inggris',
       schedule: 'Senin & Jumat',
-      topics: ['Vocabulary', 'Grammar', 'Speaking', 'Reading', 'Writing']
+      topics: ['Vocabulary', 'Grammar', 'Speaking', 'Reading', 'Writing'],
+      path: '/mata-pelajaran/bahasa-inggris'
     },
     {
       id: 4,
@@ -72,7 +75,8 @@ const MataPelajaran = () => {
       description: 'Ilmu Pengetahuan Alam dan Sosial - Memahami alam dan lingkungan sosial',
       teacher: 'Bapak/Ibu Guru IPAS',
       schedule: 'Selasa & Kamis',
-      topics: ['Makhluk Hidup', 'Lingkungan', 'Sumber Daya Alam', 'Sosial Budaya', 'Sejarah']
+      topics: ['Makhluk Hidup', 'Lingkungan', 'Sumber Daya Alam', 'Sosial Budaya', 'Sejarah'],
+      path: '/mata-pelajaran/ipas'
     },
     {
       id: 5,
@@ -85,7 +89,8 @@ const MataPelajaran = () => {
       description: 'Seni Budaya dan Prakarya - Mengembangkan kreativitas dan apresiasi seni',
       teacher: 'Bapak/Ibu Guru SBdP',
       schedule: 'Rabu',
-      topics: ['Seni Rupa', 'Seni Musik', 'Seni Tari', 'Prakarya', 'Kerajinan Tangan']
+      topics: ['Seni Rupa', 'Seni Musik', 'Seni Tari', 'Prakarya', 'Kerajinan Tangan'],
+      path: '/mata-pelajaran/sbdp'
     },
     {
       id: 6,
@@ -98,7 +103,8 @@ const MataPelajaran = () => {
       description: 'Pendidikan Lingkungan dan Kesehatan Sekolah - Menjaga kebersihan dan kesehatan',
       teacher: 'Bapak/Ibu Guru PLKS',
       schedule: 'Senin',
-      topics: ['Kebersihan Diri', 'Lingkungan Sekolah', 'Kesehatan', 'Gizi', 'Pola Hidup Sehat']
+      topics: ['Kebersihan Diri', 'Lingkungan Sekolah', 'Kesehatan', 'Gizi', 'Pola Hidup Sehat'],
+      path: '/mata-pelajaran/plks'
     },
     {
       id: 7,
@@ -111,7 +117,8 @@ const MataPelajaran = () => {
       description: 'Mempelajari nilai-nilai Pancasila dan karakter kebangsaan',
       teacher: 'Bapak/Ibu Guru Pendidikan Pancasila',
       schedule: 'Jumat',
-      topics: ['Pancasila', 'Bhineka Tunggal Ika', 'Hak dan Kewajiban', 'Karakter', 'Kewarganegaraan']
+      topics: ['Pancasila', 'Bhineka Tunggal Ika', 'Hak dan Kewajiban', 'Karakter', 'Kewarganegaraan'],
+      path: '/mata-pelajaran/pendidikan-pancasila'
     },
     {
       id: 8,
@@ -124,7 +131,8 @@ const MataPelajaran = () => {
       description: 'Pendidikan Agama Islam - Mempelajari ajaran Islam dan akhlak mulia',
       teacher: 'Bapak/Ibu Guru Agama',
       schedule: 'Rabu',
-      topics: ['Al-Quran', 'Hadits', 'Akhlak', 'Ibadah', 'Sejarah Islam']
+      topics: ['Al-Quran', 'Hadits', 'Akhlak', 'Ibadah', 'Sejarah Islam'],
+      path: '/mata-pelajaran/agama'
     }
   ];
 
@@ -172,9 +180,10 @@ const MataPelajaran = () => {
             const isSelected = selectedSubject === subject.id;
             
             return (
-              <div
+              <Link
                 key={subject.id}
-                className={`group relative bg-white/70 backdrop-blur-sm rounded-2xl border p-6 transition-all duration-300 cursor-pointer hover:-translate-y-2 hover:shadow-xl ${
+                to={subject.path}
+                className={`group relative bg-white/70 backdrop-blur-sm rounded-2xl border p-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl ${
                   isSelected 
                     ? `border-${subject.color.split(' ')[1].replace('to-', '')} shadow-lg` 
                     : 'border-orange-100 hover:border-orange-200'
@@ -197,11 +206,11 @@ const MataPelajaran = () => {
                   </span>
                 </div>
 
-                {/* Expand Button */}
-                <button className={`flex items-center space-x-1 text-sm ${subject.textColor} font-medium group-hover:translate-x-2 transition-transform`}>
-                  <span>Detail</span>
+                {/* Link ke halaman detail */}
+                <div className={`flex items-center space-x-1 text-sm ${subject.textColor} font-medium group-hover:translate-x-2 transition-transform`}>
+                  <span>Lihat Detail</span>
                   <ChevronRight className="w-4 h-4" />
-                </button>
+                </div>
 
                 {/* Expanded Details */}
                 {isSelected && (
@@ -232,30 +241,10 @@ const MataPelajaran = () => {
                     </div>
                   </div>
                 )}
-              </div>
+              </Link>
             );
           })}
         </div>
-
-        {/* Statistics */}
-        {/* <div className="mt-16 grid grid-cols-1 md:grid-cols-4 gap-6">
-          <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 text-center border border-orange-100">
-            <div className="text-4xl font-bold text-orange-600">{subjects.length}</div>
-            <div className="text-gray-500 mt-1">Total Mata Pelajaran</div>
-          </div>
-          <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 text-center border border-orange-100">
-            <div className="text-4xl font-bold text-rose-600">8</div>
-            <div className="text-gray-500 mt-1">Bidang Studi</div>
-          </div>
-          <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 text-center border border-orange-100">
-            <div className="text-4xl font-bold text-amber-600">32</div>
-            <div className="text-gray-500 mt-1">Total Jam/Minggu</div>
-          </div>
-          <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 text-center border border-orange-100">
-            <div className="text-4xl font-bold text-green-600">✓</div>
-            <div className="text-gray-500 mt-1">Aktif</div>
-          </div>
-        </div> */}
 
         {/* Footer */}
         <div className="mt-12 text-center text-gray-400 text-sm">

@@ -17,21 +17,22 @@ import {
   FolderTree,
   Users,
   School,
-  Star
+  Star,
+  Shield
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-const BahasaIndonesia = () => {
+const PendidikanPancasila = () => {
   const [expandedItems, setExpandedItems] = useState({});
   const [selectedPertemuan, setSelectedPertemuan] = useState(null);
 
   // Data dummy - nanti akan diganti dengan data dari database
   const [data, setData] = useState({
     mapel: {
-      id: 2,
-      nama: 'Bahasa Indonesia',
-      deskripsi: 'Mengembangkan kemampuan berbahasa dan bersastra Indonesia',
-      icon: '📚',
+      id: 7,
+      nama: 'Pendidikan Pancasila',
+      deskripsi: 'Mempelajari nilai-nilai Pancasila dan karakter kebangsaan',
+      icon: '🛡️',
       totalPertemuan: 0,
       totalBab: 0,
       totalSubBab: 0,
@@ -52,7 +53,7 @@ const BahasaIndonesia = () => {
       return (
         <div className="text-center py-16">
           <div className="inline-flex p-6 bg-orange-100 rounded-full mb-4">
-            <Calendar className="w-16 h-16 text-orange-500" />
+            <Shield className="w-16 h-16 text-orange-500" />
           </div>
           <h3 className="text-2xl font-bold text-gray-700 mb-2">Belum Ada Pertemuan</h3>
           <p className="text-gray-400 max-w-md mx-auto">
@@ -72,11 +73,11 @@ const BahasaIndonesia = () => {
           <div key={pertemuan.id} className="bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
             {/* Header Pertemuan */}
             <div 
-              className="flex items-center justify-between p-4 bg-gradient-to-r from-orange-50 to-rose-50 cursor-pointer hover:from-orange-100 hover:to-rose-100 transition-colors"
+              className="flex items-center justify-between p-4 bg-gradient-to-r from-orange-50 to-amber-50 cursor-pointer hover:from-orange-100 hover:to-amber-100 transition-colors"
               onClick={() => toggleExpand(`pertemuan-${pertemuan.id}`)}
             >
               <div className="flex items-center space-x-4">
-                <div className="p-2 bg-gradient-to-r from-orange-500 to-rose-500 rounded-lg">
+                <div className="p-2 bg-gradient-to-r from-orange-500 to-amber-500 rounded-lg">
                   <Calendar className="w-5 h-5 text-white" />
                 </div>
                 <div>
@@ -158,7 +159,7 @@ const BahasaIndonesia = () => {
                                           href={sub.linkDrive}
                                           target="_blank"
                                           rel="noopener noreferrer"
-                                          className="inline-flex items-center space-x-2 text-sm text-blue-600 hover:text-blue-800 transition-colors"
+                                          className="inline-flex items-center space-x-2 text-sm text-orange-600 hover:text-orange-800 transition-colors"
                                         >
                                           <LinkIcon className="w-4 h-4" />
                                           <span>Lihat Materi Lengkap</span>
@@ -202,17 +203,17 @@ const BahasaIndonesia = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50">
+    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50">
       {/* Navbar */}
       <nav className="bg-white/90 backdrop-blur-lg shadow-lg sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <Link to="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
-              <div className="p-2 bg-gradient-to-r from-orange-500 to-rose-500 rounded-xl">
-                <BookOpen className="w-6 h-6 text-white" />
+              <div className="p-2 bg-gradient-to-r from-orange-500 to-amber-500 rounded-xl">
+                <Shield className="w-6 h-6 text-white" />
               </div>
               <div>
-                <span className="text-xl font-bold text-gray-700">Bahasa Indonesia</span>
+                <span className="text-xl font-bold text-gray-700">Pendidikan Pancasila</span>
                 <span className="block text-xs text-gray-400">Kelas 3 Dewi Sartika</span>
               </div>
             </Link>
@@ -304,12 +305,12 @@ const BahasaIndonesia = () => {
         <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="bg-white/70 backdrop-blur-sm rounded-xl p-4 border border-orange-100">
             <div className="flex items-center space-x-3">
-              <div className="p-2 bg-blue-100 rounded-lg">
-                <Users className="w-5 h-5 text-blue-600" />
+              <div className="p-2 bg-orange-100 rounded-lg">
+                <Users className="w-5 h-5 text-orange-600" />
               </div>
               <div>
                 <p className="text-sm text-gray-500">Guru Pengampu</p>
-                <p className="font-semibold text-gray-700">Bapak/Ibu Guru Bahasa Indonesia</p>
+                <p className="font-semibold text-gray-700">Bapak/Ibu Guru Pendidikan Pancasila</p>
               </div>
             </div>
           </div>
@@ -328,7 +329,7 @@ const BahasaIndonesia = () => {
 
         {/* Footer */}
         <div className="mt-12 text-center text-gray-400 text-sm">
-          <p>© 2026 Bahasa Indonesia - Kelas 3 Dewi Sartika</p>
+          <p>© 2026 Pendidikan Pancasila - Kelas 3 Dewi Sartika</p>
           <p className="mt-1">SDS Harapan Sejahtera</p>
         </div>
       </div>
@@ -336,4 +337,4 @@ const BahasaIndonesia = () => {
   );
 };
 
-export default BahasaIndonesia;
+export default PendidikanPancasila;
