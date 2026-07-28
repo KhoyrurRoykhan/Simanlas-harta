@@ -22,7 +22,7 @@ function App() {
         <Route path="/mata-pelajaran/bahasa-indonesia" element={<BahasaIndonesia />} />
         <Route path="/mata-pelajaran/bahasa-inggris" element={<BahasaInggris />} />
         <Route path="/mata-pelajaran/matematika" element={<Matematika />} />
-        <Route path="/mata-pelajaran/matematika" element={<Ipas />} />
+        <Route path="/mata-pelajaran/ipas" element={<Ipas />} />
         <Route path="/mata-pelajaran/sbdp" element={<Sbdp />} />
         <Route path="/mata-pelajaran/agama" element={<Agama />} />
         <Route path="/mata-pelajaran/plks" element={<Plks />} />
