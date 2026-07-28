@@ -126,7 +126,7 @@ const LandingPage5CutMeutia = () => {
           <div className="md:hidden bg-rose-50/95 backdrop-blur-lg border-t border-rose-100">
             <div className="px-4 py-4 space-y-2">
               <Link
-                to="/portal"
+                to="/"
                 className="flex items-center space-x-3 text-gray-600 hover:text-rose-600 transition-colors font-medium py-3 px-4 rounded-lg hover:bg-rose-100"
                 onClick={() => setIsMenuOpen(false)}
               >
@@ -221,7 +221,7 @@ const LandingPage5CutMeutia = () => {
 
           {/* Tombol ke Portal */}
           <div className="text-center mt-12">
-            <Link to="/portal">
+            <Link to="/">
               <button className="group inline-flex items-center space-x-2 px-8 py-4 bg-gradient-to-r from-violet-500 to-purple-500 text-white rounded-full font-semibold transition-all duration-300 hover:shadow-2xl hover:shadow-violet-500/25 hover:-translate-y-1">
                 <Home className="w-5 h-5" />
                 <span>Ke Portal Kelas</span>

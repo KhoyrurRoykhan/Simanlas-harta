@@ -25,6 +25,7 @@ import LandingPage4WahidHasyim from './Page/4WahidHasyim/LandingPage4WahidHasyim
 import LandingPage5CutMeutia from './Page/5CutMeutia/LandingPage5CutMeutia';
 import LandingPage6Soekarno from './Page/6Soekarno/LandingPage6Soekarno';
 import LandingPage6Hatta from './Page/6Hatta/LandingPage6Hatta';
+import Admin3DewiSartika from './Page/Admin/Admin3DewiSartika';
 
 function App() {
   return (
@@ -71,6 +72,9 @@ function App() {
 
         
         <Route path="/login-admin" element={<LoginAdmin />} />
+
+        
+        <Route path="/admin" element={<Admin3DewiSartika />} />
       </Routes>
     </BrowserRouter>
   )
