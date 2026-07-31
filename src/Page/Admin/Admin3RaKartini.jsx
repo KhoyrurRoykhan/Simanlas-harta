@@ -1,4 +1,4 @@
-// src/pages/admin/kelas3/Admin3DewiSartika.jsx
+// src/pages/admin/kelas3/Admin3RaKartini.jsx
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
@@ -41,7 +41,7 @@ import {
   getDoc
 } from 'firebase/firestore';
 
-const Admin3DewiSartika = () => {
+const Admin3RaKartini = () => {
   const navigate = useNavigate();
   
   // ============================================
@@ -80,8 +80,8 @@ const Admin3DewiSartika = () => {
   // ============================================
   
   const COLLECTION_NAME = 'mata_pelajaran';
-  const KELAS = '3_dewi_sartika';
-  const NAMA_KELAS = 'Kelas 3 Dewi Sartika';
+  const KELAS = '3_ra_kartini';
+  const NAMA_KELAS = 'Kelas 3 RA Kartini';
   
   const ICON_OPTIONS = [
     { value: '📐', label: '📐 Matematika' },
@@ -534,7 +534,7 @@ const Admin3DewiSartika = () => {
       const parsedUser = JSON.parse(user);
       setUserData(parsedUser);
       
-      if (parsedUser.username === '3_dewi_sartika') {
+      if (parsedUser.username === '3_ra_kartini') {
         setIsAuthorized(true);
         loadData();
       } else {
@@ -1661,4 +1661,4 @@ const Admin3DewiSartika = () => {
   );
 };
 
-export default Admin3DewiSartika;
+export default Admin3RaKartini;

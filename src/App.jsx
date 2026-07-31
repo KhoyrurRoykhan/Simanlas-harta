@@ -27,6 +27,17 @@ import LandingPage6Soekarno from './Page/6Soekarno/LandingPage6Soekarno';
 import LandingPage6Hatta from './Page/6Hatta/LandingPage6Hatta';
 import Admin3DewiSartika from './Page/Admin/Admin3DewiSartika';
 import Pjok from './Page/3DewiSartika/MapelPage/Pjok';
+import Admin3RaKartini from './Page/Admin/Admin3RaKartini';
+import MataPelajaran3RAKartini from './Page/3RAKartini/MataPelajaran3RAKartini';
+import Agama3RaKartini from './Page/3RAKartini/MapelPage/Agama3RaKartini';
+import BahasaIndonesia3RaKartini from './Page/3RAKartini/MapelPage/BahasaIndonesia3RaKartini';
+import BahasaInggris3RaKartini from './Page/3RAKartini/MapelPage/BahasaInggris3RaKartini';
+import Ipas3RaKartini from './Page/3RAKartini/MapelPage/Ipas3RaKartini';
+import Matematika3RaKartini from './Page/3RAKartini/MapelPage/Matematika3RaKartini';
+import PendidikanPancasila3RaKartini from './Page/3RAKartini/MapelPage/PendidikanPancasila3RaKartini';
+import Pjok3RaKartini from './Page/3RAKartini/MapelPage/Pjok3RaKartini';
+import Plks3RaKartini from './Page/3RAKartini/MapelPage/Plks3RaKartini';
+import Sbdp3RaKartini from './Page/3RAKartini/MapelPage/Sbdp3RaKarini';
 
 function App() {
   return (
@@ -59,6 +70,16 @@ function App() {
         <Route path="/3-dewi-sartika/mata-pelajaran/pjok" element={<Pjok />} />
 
         <Route path="/3-ra-kartini" element={<LandingPage3RAKartini />} />
+        <Route path="/3-ra-kartini/mata-pelajaran" element={<MataPelajaran3RAKartini />} />
+        <Route path="/3-ra-kartini/mata-pelajaran/agama" element={<Agama3RaKartini />} />
+        <Route path="/3-ra-kartini/mata-pelajaran/bahasa-indonesia" element={<BahasaIndonesia3RaKartini />} />
+        <Route path="/3-ra-kartini/mata-pelajaran/bahasa-inggris" element={<BahasaInggris3RaKartini />} />
+        <Route path="/3-ra-kartini/mata-pelajaran/ipas" element={<Ipas3RaKartini />} />
+        <Route path="/3-ra-kartini/mata-pelajaran/matematika" element={<Matematika3RaKartini />} />
+        <Route path="/3-ra-kartini/mata-pelajaran/pendidikan-pancasila" element={<PendidikanPancasila3RaKartini />} />
+        <Route path="/3-ra-kartini/mata-pelajaran/pjok" element={<Pjok3RaKartini />} />
+        <Route path="/3-ra-kartini/mata-pelajaran/plks" element={<Plks3RaKartini />} />
+        <Route path="/3-ra-kartini/mata-pelajaran/sbdp" element={<Sbdp3RaKartini />} />
 
         <Route path="/4-tan-malaka" element={<LandingPage4TanMalaka />} />
 
@@ -76,6 +97,7 @@ function App() {
         <Route path="/login-admin" element={<LoginAdmin />} />
 
         <Route path="/admin/3-dewi-sartika" element={<Admin3DewiSartika />} />
+        <Route path="/admin/3-ra-kartini" element={<Admin3RaKartini />} />
       </Routes>
     </BrowserRouter>
   )
