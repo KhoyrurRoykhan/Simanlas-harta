@@ -26,6 +26,7 @@ import LandingPage5CutMeutia from './Page/5CutMeutia/LandingPage5CutMeutia';
 import LandingPage6Soekarno from './Page/6Soekarno/LandingPage6Soekarno';
 import LandingPage6Hatta from './Page/6Hatta/LandingPage6Hatta';
 import Admin3DewiSartika from './Page/Admin/Admin3DewiSartika';
+import Pjok from './Page/3DewiSartika/MapelPage/Pjok';
 
 function App() {
   return (
@@ -55,6 +56,7 @@ function App() {
         <Route path="/3-dewi-sartika/mata-pelajaran/agama" element={<Agama />} />
         <Route path="/3-dewi-sartika/mata-pelajaran/plks" element={<Plks />} />
         <Route path="/3-dewi-sartika/mata-pelajaran/pendidikan-pancasila" element={<PendidikanPancasila />} />
+        <Route path="/3-dewi-sartika/mata-pelajaran/pjok" element={<Pjok />} />
 
         <Route path="/3-ra-kartini" element={<LandingPage3RAKartini />} />
 
@@ -73,8 +75,7 @@ function App() {
         
         <Route path="/login-admin" element={<LoginAdmin />} />
 
-        
-        <Route path="/admin" element={<Admin3DewiSartika />} />
+        <Route path="/admin/3-dewi-sartika" element={<Admin3DewiSartika />} />
       </Routes>
     </BrowserRouter>
   )

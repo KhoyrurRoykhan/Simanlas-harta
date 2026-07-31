@@ -1,4 +1,4 @@
-// src/pages/Plks.jsx
+// src/pages/Pjok.jsx
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
@@ -15,12 +15,16 @@ import {
   Users,
   School,
   Star,
-  Heart,
   Loader,
   AlertTriangle,
   FileSpreadsheet,
   ExternalLink,
-  X
+  X,
+  Dumbbell,
+  Footprints,
+  Shield,
+  Heart,
+  Trophy
 } from 'lucide-react';
 import { db } from '../../../firebase/config';
 import {
@@ -30,13 +34,13 @@ import {
   where
 } from 'firebase/firestore';
 
-const Plks = () => {
+const Pjok = () => {
   const [data, setData] = useState({
     mapel: {
       id: null,
-      nama: 'PLKS',
+      nama: 'PJOK',
       deskripsi: '',
-      icon: '❤️',
+      icon: '🏃',
       totalPertemuan: 0,
       pertemuan: [],
       createdBy: '',
@@ -303,16 +307,16 @@ const Plks = () => {
       try {
         const mapelRef = collection(db, 'mata_pelajaran');
         
+        // Cari PJOK dengan berbagai kemungkinan penulisan
         const q = query(
           mapelRef,
-          where('nama', '==', 'PLKS'),
           where('kelas', '==', '3_dewi_sartika')
         );
         
         const querySnapshot = await getDocs(q);
         
         if (querySnapshot.empty) {
-          setError('Data PLKS untuk Kelas 3 Dewi Sartika tidak ditemukan');
+          setError('Data PJOK untuk Kelas 3 Dewi Sartika tidak ditemukan');
           setIsLoading(false);
           return;
         }
@@ -320,10 +324,21 @@ const Plks = () => {
         let mapelData = null;
         let mapelId = null;
         
+        // Cari data dengan nama PJOK atau Pendidikan Jasmani
         querySnapshot.forEach((doc) => {
-          mapelData = doc.data();
-          mapelId = doc.id;
+          const data = doc.data();
+          const nama = data.nama || '';
+          if (nama === 'PJOK' || nama === 'Pendidikan Jasmani' || nama === 'Pendidikan Jasmani Olahraga dan Kesehatan' || nama.includes('PJOK')) {
+            mapelData = data;
+            mapelId = doc.id;
+          }
         });
+        
+        if (!mapelData) {
+          setError('Data PJOK untuk Kelas 3 Dewi Sartika tidak ditemukan');
+          setIsLoading(false);
+          return;
+        }
         
         const pertemuanList = mapelData.pertemuan || [];
         
@@ -331,7 +346,7 @@ const Plks = () => {
           return new Date(b.tanggal) - new Date(a.tanggal);
         });
         
-        console.log('📝 Data PLKS:', {
+        console.log('📝 Data PJOK:', {
           nama: mapelData.nama,
           pertemuan: pertemuanList.length
         });
@@ -339,9 +354,9 @@ const Plks = () => {
         setData({
           mapel: {
             id: mapelId,
-            nama: mapelData.nama || 'PLKS',
-            deskripsi: mapelData.deskripsi || 'Pendidikan Lingkungan dan Kesehatan Sekolah - Menjaga kebersihan dan kesehatan',
-            icon: mapelData.icon || '❤️',
+            nama: mapelData.nama || 'PJOK',
+            deskripsi: mapelData.deskripsi || 'Pendidikan Jasmani, Olahraga, dan Kesehatan - Mempelajari aktivitas fisik, olahraga, dan pola hidup sehat',
+            icon: mapelData.icon || '🏃',
             totalPertemuan: pertemuanList.length,
             pertemuan: pertemuanList,
             createdBy: mapelData.createdBy || 'Wali Kelas',
@@ -375,8 +390,8 @@ const Plks = () => {
     if (pertemuanList.length === 0) {
       return (
         <div className="text-center py-16">
-          <div className="inline-flex p-6 bg-pink-100 rounded-full mb-4">
-            <Heart className="w-16 h-16 text-pink-500" />
+          <div className="inline-flex p-6 bg-lime-100 rounded-full mb-4">
+            <Dumbbell className="w-16 h-16 text-lime-500" />
           </div>
           <h3 className="text-2xl font-bold text-gray-700 mb-2">Belum Ada Pertemuan</h3>
           <p className="text-gray-400 max-w-md mx-auto">
@@ -407,11 +422,11 @@ const Plks = () => {
             <div key={pertemuan.id} className="bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
               {/* Header Pertemuan */}
               <div 
-                className="flex items-center justify-between p-4 bg-gradient-to-r from-pink-50 to-rose-50 cursor-pointer hover:from-pink-100 hover:to-rose-100 transition-colors"
+                className="flex items-center justify-between p-4 bg-gradient-to-r from-lime-50 to-green-50 cursor-pointer hover:from-lime-100 hover:to-green-100 transition-colors"
                 onClick={() => toggleExpand(`pertemuan-${pertemuan.id}`)}
               >
                 <div className="flex items-center space-x-4">
-                  <div className="p-2 bg-gradient-to-r from-pink-500 to-rose-500 rounded-lg">
+                  <div className="p-2 bg-gradient-to-r from-lime-500 to-green-500 rounded-lg">
                     <Calendar className="w-5 h-5 text-white" />
                   </div>
                   <div>
@@ -454,12 +469,12 @@ const Plks = () => {
                 <div className="p-4 space-y-4">
                   {/* Materi */}
                   {pertemuan.materi && (
-                    <div className="bg-pink-50 rounded-lg p-4 border border-pink-200">
-                      <h4 className="font-semibold text-pink-800 mb-2 flex items-center gap-2">
+                    <div className="bg-lime-50 rounded-lg p-4 border border-lime-200">
+                      <h4 className="font-semibold text-lime-800 mb-2 flex items-center gap-2">
                         <BookOpen className="w-4 h-4" />
                         Materi Pembelajaran
                       </h4>
-                      <p className="text-pink-700 whitespace-pre-wrap">{pertemuan.materi}</p>
+                      <p className="text-lime-700 whitespace-pre-wrap">{pertemuan.materi}</p>
                     </div>
                   )}
 
@@ -570,10 +585,10 @@ const Plks = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-pink-50 via-rose-50 to-red-50">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-lime-50 via-green-50 to-emerald-50">
         <div className="text-center">
-          <Loader className="w-16 h-16 animate-spin text-pink-500 mx-auto mb-4" />
-          <p className="text-gray-500">Memuat data PLKS...</p>
+          <Loader className="w-16 h-16 animate-spin text-lime-500 mx-auto mb-4" />
+          <p className="text-gray-500">Memuat data PJOK...</p>
           <p className="text-xs text-gray-400 mt-2">Kelas 3 Dewi Sartika</p>
         </div>
       </div>
@@ -586,7 +601,7 @@ const Plks = () => {
 
   if (error) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-pink-50 via-rose-50 to-red-50 p-4">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-lime-50 via-green-50 to-emerald-50 p-4">
         <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 text-center">
           <div className="inline-flex p-4 bg-red-100 rounded-full mb-4">
             <AlertTriangle className="w-12 h-12 text-red-600" />
@@ -595,7 +610,7 @@ const Plks = () => {
           <p className="text-gray-600 mb-6">{error}</p>
           <button
             onClick={() => window.location.reload()}
-            className="px-6 py-3 bg-gradient-to-r from-pink-500 to-rose-500 text-white rounded-xl font-semibold hover:shadow-lg transition-all duration-300"
+            className="px-6 py-3 bg-gradient-to-r from-lime-500 to-green-500 text-white rounded-xl font-semibold hover:shadow-lg transition-all duration-300"
           >
             Coba Lagi
           </button>
@@ -609,24 +624,24 @@ const Plks = () => {
   // ============================================
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-50 via-rose-50 to-red-50">
+    <div className="min-h-screen bg-gradient-to-br from-lime-50 via-green-50 to-emerald-50">
       {/* Navbar */}
       <nav className="bg-white/90 backdrop-blur-lg shadow-lg sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <Link to="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
-              <div className="p-2 bg-gradient-to-r from-pink-500 to-rose-500 rounded-xl">
-                <Heart className="w-6 h-6 text-white" />
+              <div className="p-2 bg-gradient-to-r from-lime-500 to-green-500 rounded-xl">
+                <Dumbbell className="w-6 h-6 text-white" />
               </div>
               <div>
-                <span className="text-xl font-bold text-gray-700">PLKS</span>
-                <span className="block text-xs text-pink-600 font-medium">{data.mapel.namaKelas}</span>
+                <span className="text-xl font-bold text-gray-700">PJOK</span>
+                <span className="block text-xs text-lime-600 font-medium">{data.mapel.namaKelas}</span>
               </div>
             </Link>
             <div className="flex items-center space-x-4">
               <Link 
                 to="/3-dewi-sartika/mata-pelajaran" 
-                className="flex items-center space-x-2 text-gray-600 hover:text-pink-600 transition-colors"
+                className="flex items-center space-x-2 text-gray-600 hover:text-lime-600 transition-colors"
               >
                 <ChevronLeft className="w-5 h-5" />
                 <span>Kembali</span>
@@ -647,7 +662,7 @@ const Plks = () => {
                 {data.mapel.nama}
               </h1>
               <p className="text-gray-500 mt-1">{data.mapel.deskripsi}</p>
-              <p className="text-sm text-pink-600 mt-1">
+              <p className="text-sm text-lime-600 mt-1">
                 {data.mapel.namaKelas} • {data.mapel.createdBy}
               </p>
             </div>
@@ -662,7 +677,7 @@ const Plks = () => {
                 <p className="text-sm text-gray-500">Total Pertemuan</p>
                 <p className="text-2xl font-bold text-gray-800">{data.mapel.totalPertemuan}</p>
               </div>
-              <Calendar className="w-8 h-8 text-pink-500" />
+              <Calendar className="w-8 h-8 text-lime-500" />
             </div>
           </div>
           <div className="bg-white rounded-xl p-4 border border-gray-200">
@@ -696,16 +711,16 @@ const Plks = () => {
                 <p className="text-sm text-gray-500">Status</p>
                 <p className="text-2xl font-bold text-green-500">✓ Aktif</p>
               </div>
-              <Star className="w-8 h-8 text-yellow-500" />
+              <Trophy className="w-8 h-8 text-yellow-500" />
             </div>
           </div>
         </div>
 
         {/* Pertemuan List */}
-        <div className="bg-white/70 backdrop-blur-sm rounded-2xl border border-pink-100 p-6 shadow-lg">
+        <div className="bg-white/70 backdrop-blur-sm rounded-2xl border border-lime-100 p-6 shadow-lg">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-xl font-bold text-gray-700 flex items-center space-x-2">
-              <Calendar className="w-5 h-5 text-pink-500" />
+              <Calendar className="w-5 h-5 text-lime-500" />
               <span>Daftar Pertemuan</span>
             </h2>
             <div className="flex items-center space-x-2 text-sm text-gray-400">
@@ -719,10 +734,10 @@ const Plks = () => {
 
         {/* Info Tambahan */}
         <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="bg-white/70 backdrop-blur-sm rounded-xl p-4 border border-pink-100">
+          <div className="bg-white/70 backdrop-blur-sm rounded-xl p-4 border border-lime-100">
             <div className="flex items-center space-x-3">
-              <div className="p-2 bg-pink-100 rounded-lg">
-                <Users className="w-5 h-5 text-pink-600" />
+              <div className="p-2 bg-lime-100 rounded-lg">
+                <Users className="w-5 h-5 text-lime-600" />
               </div>
               <div>
                 <p className="text-sm text-gray-500">Guru Pengampu</p>
@@ -730,7 +745,7 @@ const Plks = () => {
               </div>
             </div>
           </div>
-          <div className="bg-white/70 backdrop-blur-sm rounded-xl p-4 border border-pink-100">
+          <div className="bg-white/70 backdrop-blur-sm rounded-xl p-4 border border-lime-100">
             <div className="flex items-center space-x-3">
               <div className="p-2 bg-green-100 rounded-lg">
                 <School className="w-5 h-5 text-green-600" />
@@ -745,7 +760,7 @@ const Plks = () => {
 
         {/* Footer */}
         <div className="mt-12 text-center text-gray-400 text-sm">
-          <p>© 2026 PLKS - {data.mapel.namaKelas}</p>
+          <p>© 2026 PJOK - {data.mapel.namaKelas}</p>
           <p className="mt-1">SDS Harapan Sejahtera</p>
         </div>
       </div>
@@ -756,4 +771,4 @@ const Plks = () => {
   );
 };
 
-export default Plks;
+export default Pjok;
